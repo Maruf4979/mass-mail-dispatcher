@@ -4,12 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mass-Mail Dispatcher</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<h1>hlo</h1>
 
 <body>
+    <header>
+        <h1>Mass-Mail Dispatcher</h1>
+        <nav id="main-nav">
+            <a href="#" id="dashboard-link">Dashboard</a>
+            <a href="#" id="templates-link">Templates</a>
+            <a href="#" id="recipients-link">Recipients</a>
+            <a href="#" id="analytics-link">Analytics</a>
+            <a href="#" id="logout-link">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="login" class="hidden">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="signup-link">Sign up</a></p>
+        </section>
+
+        <section id="signup" class="hidden">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+
+        <section id="dashboard" class="hidden">
+            <h2>Dashboard</h2>
+            <div id="stats-display">
+                <p>Emails in queue: <span id="queue-count">0</span></p>
+                <p>Emails sent: <span id="sent-count">0</span></p>
+            </div>
+        </section>
+
+        <section id="compose" class="hidden">
+            <h2>Compose Email</h2>
+            <form id="email-form">
+                <select id="template-select">
+                    <option value="">Select a template</option>
+                </select>
+                <input type="text" id="subject" placeholder="Subject" required>
+                <textarea id="message" placeholder="Message" required></textarea>
+                <select id="recipient-list" multiple>
+                    <!-- Recipient lists will be populated here -->
+                </select>
+                <input type="datetime-local" id="schedule-time">
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+        <section id="templates" class="hidden">
+            <h2>Email Templates</h2>
+            <form id="template-form">
+                <input type="text" id="template-name" placeholder="Template Name" required>
+                <input type="text" id="template-subject" placeholder="Subject" required>
+                <textarea id="template-content" placeholder="Template Content" required></textarea>
+                <button type="submit">Save Template</button>
+            </form>
+            <ul id="template-list"></ul>
+        </section>
+
+        <section id="recipients" class="hidden">
+            <h2>Recipient Management</h2>
+            <form id="recipient-form">
+                <input type="text" id="list-name" placeholder="List Name" required>
+                <textarea id="recipient-emails" placeholder="Enter email addresses, one per line" required></textarea>
+                <button type="submit">Create List</button>
+            </form>
+            <ul id="recipient-lists"></ul>
+        </section>
+
+        <section id="analytics" class="hidden">
+            <h2>Analytics and Reporting</h2>
+            <div id="analytics-display">
+                <!-- Analytics data will be displayed here -->
+            </div>
+        </section>
+    </main>
+
     <script src="app.js"></script>
 </body>
 
